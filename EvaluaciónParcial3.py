@@ -1,5 +1,28 @@
 import csv
 
+def menu_principal():
+    while True:
+        print("\nBienvenido al Sistema de Gestión de Inventario")
+        print("Seleccione una opción:")
+        print("1. Agregar producto al inventario")
+        print("2. Leer el inventario")
+        print("3. Clasificar productos y generar archivo de texto")
+        print("4. Salir")
+
+        opcion = input("Ingrese el número de la opción escogida: ")
+
+        if opcion == "1":
+            agregar_producto()
+        elif opcion == "2":
+            leer_inventario()
+        elif opcion == "3":
+            clasificar_productos()
+        elif opcion == "4":
+            print("¡CYA!") #see u later!!
+            break
+        else:
+            print("Opción inválida. Intente de nuevo.")
+
 def agregar_producto():
     print("Agregar producto al inventario")
     id_producto = input("Ingrese el ID del producto: ")
@@ -39,38 +62,15 @@ def clasificar_productos():
                 productos_calzado.append(f"ID: {id_producto}, Nombre: {nombre}, Precio: {precio}")
 
     with open("clasificacion_productos.txt", "w") as archivo_texto:
-        archivo_texto.write("Productos Electrónicos:\n")
+        archivo_texto.write("Productos Electrónicos:")
         for producto in productos_electronicos:
-            archivo_texto.write(f"- {producto}\n")
-        archivo_texto.write("\nProductos Textiles:\n")
+            archivo_texto.write(f"- {producto}")
+        archivo_texto.write("\nProductos Textiles:")
         for producto in productos_textiles:
-            archivo_texto.write(f"- {producto}\n")
-        archivo_texto.write("\nProductos de Calzado:\n")
+            archivo_texto.write(f"- {producto}")
+        archivo_texto.write("\nProductos de Calzado:")
         for producto in productos_calzado:
-            archivo_texto.write(f"- {producto}\n")
+            archivo_texto.write(f"- {producto}")
 
     print("El archivo de clasificación de productosha sido generado con exito.")
-
-def menu_principal():
-    while True:
-        print("\nBienvenido al Sistema de Gestión de Inventario")
-        print("Seleccione una opción:")
-        print("1. Agregar producto al inventario")
-        print("2. Leer el inventario")
-        print("3. Clasificar productos y generar archivo de texto")
-        print("4. Salir")
-
-        opcion = input("Ingrese el número de la opción escogida: ")
-
-        if opcion == "1":
-            agregar_producto()
-        elif opcion == "2":
-            leer_inventario()
-        elif opcion == "3":
-            clasificar_productos()
-        elif opcion == "4":
-            print("¡CYA!") #see u later!!
-            break
-        else:
-            print("Opción inválida. Intente de nuevo.")
 menu_principal()
